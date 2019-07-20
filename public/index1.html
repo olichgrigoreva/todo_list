@@ -1,0 +1,49 @@
+<html>
+    <head></head>
+
+<body>
+    <script>
+        let note1 =
+                {
+                id: 1,
+                author_id: 1,
+                content: "Hello",
+                title: "first",
+                data: "2019-07-12"
+            };
+
+        let note2 =
+            {
+                id: 2,
+                author_id: 2,
+                content: "world",
+                title: "second",
+                data: "2013-04-11"
+            };
+
+        let note3 =
+            {
+                id: 3,
+                author_id: 3,
+                content: "qwerty",
+                title: "qwerty",
+                data: "2012-04-11"
+            };
+
+        let notes = [note1, note2, note3];
+
+        //console.dir(notes);
+
+        //название объекта в LocalSorage, объект
+        localStorage.setItem("notebook",JSON.stringify(notes));
+
+
+        let notebook = localStorage.getItem("notebook");
+        //console.log(notebook); //выводит строкой
+        notebook = JSON.parse(notebook);
+        console.log(notebook); //выводим массивом
+
+    </script>
+</body>
+
+</html>
