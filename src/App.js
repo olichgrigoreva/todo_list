@@ -33,8 +33,9 @@ let note3 =
     };
 
 let notes = [note1, note2, note3];
-localStorage.setItem("notebook",JSON.stringify(notes));
-
+if (!localStorage.getItem("notebook")) {
+    localStorage.setItem("notebook", JSON.stringify(notes));
+}
 class App extends React.Component {
 
     constructor(props){
@@ -50,7 +51,7 @@ class App extends React.Component {
     }
 
     showItem(id){
-        this.setState({ //rf;lsq hfp rjulf dspsdftncz setstate вызывается рендер и отрисовывается все
+        this.setState({ //каждый раз когда вызывается setstate вызывается рендер и отрисовывается все
             active: id,
             form: 0//какя именно запись должна показываться
         })
